@@ -1,5 +1,5 @@
 Ext.define('Ext.ux.plugin.minimize.MinimizedButton', {
-    extend: 'Ext.button.Button',
+    extend: 'Ext.button.Split',
     alias: 'widget.minimized',
     //TODO cls
     
@@ -20,6 +20,10 @@ Ext.define('Ext.ux.plugin.minimize.MinimizedButton', {
             }
             this.window.hide();
         }
+    },
+
+    arrowHandler: function(){
+        this.window.close();
     },
     
     initComponent: function(){

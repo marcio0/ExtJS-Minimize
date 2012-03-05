@@ -8,11 +8,13 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         var title = window.minimizedTitle || window.title,
             minimizePanel = Ext.ux.plugin.minimize.MinimizePool.minimizePanel;
         window.minimizable = true;
+        
+        var buttonConfig = {window: window, text: title};
+        for(var attrname in Ext.ux.plugin.minimize.MinimizePool.buttonConfig){
+            buttonConfig[attrname] = Ext.ux.plugin.minimize.MinimizePool.buttonConfig[attrname]; 
+        }
 
-        var button = Ext.create('Ext.ux.plugin.minimize.MinimizedButton', {
-            window: window,
-            text: title
-        });
+        var button = Ext.create('Ext.ux.plugin.minimize.MinimizedButton', buttonConfig);
         
         minimizePanel.add(button);
 
