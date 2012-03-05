@@ -1,4 +1,4 @@
-Ext.define('Ext.ux.MinimizedButton', {
+Ext.define('Ext.ux.plugin.minimize.MinimizedButton', {
     extend: 'Ext.button.Button',
     alias: 'widget.minimized',
     //TODO cls
@@ -10,12 +10,12 @@ Ext.define('Ext.ux.MinimizedButton', {
     toggleHandler: function(button, state){
         //TODO animation
         if(state){
-            if(Ext.ux.MinimizePool.toggleMode == 'hide'){
+            if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'hide'){
                 this.hide();
             }
             this.window.show();
         } else {
-            if(Ext.ux.MinimizePool.toggleMode == 'hide'){
+            if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'hide'){
                 this.show();
             }
             this.window.hide();
@@ -23,7 +23,7 @@ Ext.define('Ext.ux.MinimizedButton', {
     },
     
     initComponent: function(){
-        if(Ext.ux.MinimizePool.toggleMode == 'hide'){
+        if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'hide'){
             this.hidden = true;
         }
         this.callParent(arguments);

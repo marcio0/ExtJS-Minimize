@@ -1,7 +1,7 @@
-Ext.define('Ext.ux.MinimizePanel', {
+Ext.define('Ext.ux.plugin.minimize.MinimizePanel', {
     extend: 'Ext.container.Container',
     alias: 'widget.minimizepanel',
-    requires: ['Ext.ux.MinimizePool'],
+    requires: ['Ext.ux.plugin.minimize.MinimizePool'],
     height: 30,
     
     toggleMode: 'hide',
@@ -18,8 +18,8 @@ Ext.define('Ext.ux.MinimizePanel', {
 
     initComponent: function(){
         this.callParent(arguments);
-        Ext.ux.MinimizePool.minimizePanel = this;
-        Ext.ux.MinimizePool.toggleMode = this.toggleMode;
-        Ext.ux.MinimizePool.buttonConfig = this.buttonConfig;
+        Ext.ux.plugin.minimize.MinimizePool.minimizePanel = this;
+        Ext.ux.plugin.minimize.MinimizePool.toggleMode = this.toggleMode;
+        Ext.ux.plugin.minimize.MinimizePool.buttonConfig = this.buttonConfig;
     }
 });

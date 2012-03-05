@@ -1,15 +1,15 @@
-Ext.define('Ext.ux.Minimize', {
+Ext.define('Ext.ux.plugin.minimize.Minimize', {
     extend: 'Ext.AbstractPlugin',
     alias: 'plugin.Minimize',
-    requires: ['Ext.ux.MinimizePool'],
+    requires: ['Ext.ux.plugin.minimize.MinimizePool'],
     
     init: function(window){
         //TODO verificar se é window
         var title = window.minimizedTitle || window.title,
-            minimizePanel = Ext.ux.MinimizePool.minimizePanel;
+            minimizePanel = Ext.ux.plugin.minimize.MinimizePool.minimizePanel;
         window.minimizable = true;
 
-        var button = Ext.create('Ext.ux.Minimized', {
+        var button = Ext.create('Ext.ux.plugin.minimize.Minimized', {
             window: window,
             text: title
         });
