@@ -1,6 +1,6 @@
-Ext.define('Ext.ux.plugin.minimize.MinimizePanel', {
+Ext.define('Ext.ux.plugin.minimize.MinimizeBar', {
     extend: 'Ext.container.Container',
-    alias: 'widget.minimizepanel',
+    alias: 'widget.minimizebar',
     requires: ['Ext.ux.plugin.minimize.MinimizePool'],
     height: 30,
     
