@@ -1,5 +1,5 @@
 Ext.define('Ext.ux.plugin.minimize.MinimizedButton', {
-    extend: 'Ext.button.Split',
+    extend: 'Ext.button.Button',
     alias: 'widget.minimized',
     //TODO cls
     
@@ -22,10 +22,6 @@ Ext.define('Ext.ux.plugin.minimize.MinimizedButton', {
         }
     },
 
-    arrowHandler: function(){
-        this.window.close();
-    },
-    
     initComponent: function(){
         if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'hide'){
             this.hidden = true;
