@@ -3,15 +3,23 @@ Ext.define('Ext.ux.plugin.minimize.MinimizeBar', {
     alias: 'widget.minimizebar',
     requires: ['Ext.ux.plugin.minimize.MinimizePool'],
     height: 30,
-    
-    toggleMode: 'hide',
+
+    toggleMode: 'toggle',
     buttonConfig: {},
-    
+
+    items: [
+        { xtype: 'tbfill' },
+        {
+            xtype: 'button',
+            icon: 'http://i.imgur.com/vI8x5.png'
+        }
+    ],
+
     layout: {
         type: 'hbox',
         align: 'stretch'
     },
-    
+
     defaults: {
         margin: '0 0 0 10'
     },
