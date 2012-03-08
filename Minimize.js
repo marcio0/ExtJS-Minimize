@@ -8,7 +8,8 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         window.minimizable = true;
         window.minimized = false;
 
-        Ext.ux.plugin.minimize.MinimizePool._windows.push({window: window});
+        console.log(Ext.ux.plugin.minimize.MinimizePool._windows);
+        Ext.ux.plugin.minimize.MinimizePool._windows.add(window);
         
         if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'toggle'){
             var title = window.minimizedTitle || window.title,
@@ -25,12 +26,12 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
             button = this.addMinimizedButton(buttonConfig);
 
             window.on('minimize', this.toggleMinimizeHandler, this, {button: button});
-            window.on('close', this.closeWindow, this, {button: button});
+            window.on('beforeclose', this.closeWindow, this, {button: button});
             //TODO titlechange!
         }
         else if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'hide'){
             window.on('minimize', this.hideMinimizeHandler, this);
-            window.on('close', this.closeWindow, this);
+            window.on('beforeclose', this.closeWindow, this);
         }
     },
     
@@ -43,7 +44,6 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         }
 
         var button = Ext.create('Ext.button.Button', config);
-
         minimizePanel.insert(pos, button);
 
         return button;
@@ -65,7 +65,12 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
     
     closeWindow: function(window, opts){
         var button = opts.button;
-        button.destroy();
+        if(button){
+            button.destroy();
+        }
+        console.log(Ext.ux.plugin.minimize.MinimizePool._windows);
+        Ext.ux.plugin.minimize.MinimizePool._windows.removeAtKey(window.id);
+        console.log(Ext.ux.plugin.minimize.MinimizePool._windows);
     },
     
     toggleMinimizeHandler: function(window, opts){
