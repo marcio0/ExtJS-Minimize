@@ -27,11 +27,18 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
 
             window.on('minimize', this.toggleMinimizeHandler, this, {button: button});
             window.on('beforeclose', this.closeWindow, this, {button: button});
-            //TODO titlechange!
+            window.on('titlechange', this.changeTitle, this, {button: button});
         }
         else if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'hide'){
             window.on('minimize', this.hideMinimizeHandler, this);
             window.on('beforeclose', this.closeWindow, this);
+        }
+    },
+
+    changeTitle: function(window, newTitle, oldTitle, opts){
+        if(!window.minimizedTitle){
+            var button = opts.button;
+            button.setText(newTitle);
         }
     },
     
