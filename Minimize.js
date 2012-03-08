@@ -6,6 +6,10 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
     init: function(window){
         //TODO verificar se é window
         window.minimizable = true;
+        window.minimized = false;
+
+        Ext.ux.plugin.minimize.MinimizePool._windows.push({window: window});
+        
         if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'toggle'){
             var title = window.minimizedTitle || window.title,
                 minimizePanel = Ext.ux.plugin.minimize.MinimizePool.minimizePanel;
@@ -55,6 +59,7 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         };
 
         this.addMinimizedButton(buttonConfig);
+        window.minimized = true;
         window.hide();
     },
     
@@ -69,12 +74,14 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
     },
     
     showHandler: function(){
+        this.window.minimized = false;
         this.window.show();
         this.destroy();
     },
     
     toggleHandler: function(button, state){
         //TODO animation
+        this.window.minimized = !state;
         if(state){
             this.window.show();
         } else {
