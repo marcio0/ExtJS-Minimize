@@ -11,7 +11,8 @@ Ext.define('Ext.ux.plugin.minimize.MinimizeBar', {
         { xtype: 'tbfill' },
         {
             xtype: 'button',
-            icon: 'http://i.imgur.com/vI8x5.png',
+            //icon: 'http://i.imgur.com/vI8x5.png',
+            text: 'Minimize all',
             handler: function(){
                 Ext.each(Ext.ux.plugin.minimize.MinimizePool._windows, function(item){
                     if(!item.window.minimized){
