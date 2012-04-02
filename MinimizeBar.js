@@ -8,10 +8,12 @@ Ext.define('Ext.ux.plugin.minimize.MinimizeBar', {
     buttonConfig: {},
     minimizeAllButtonConfig: {},
 
+    enableOverflow: true,
 
     layout: {
         type: 'hbox',
-        align: 'stretch'
+        align: 'stretch',
+        overflowHandler: 'Menu'
     },
 
     defaults: {
