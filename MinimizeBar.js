@@ -6,22 +6,8 @@ Ext.define('Ext.ux.plugin.minimize.MinimizeBar', {
 
     toggleMode: 'toggle',
     buttonConfig: {},
+    minimizeAllButtonConfig: {},
 
-    items: [
-        { xtype: 'tbfill' },
-        {
-            xtype: 'button',
-            //icon: 'http://i.imgur.com/vI8x5.png',
-            text: 'Minimize all',
-            handler: function(){
-                Ext.ux.plugin.minimize.MinimizePool._windows.each(function(item){
-                    if(!item.minimized){
-                        item.minimize();
-                    }
-                });
-            }
-        }
-    ],
 
     layout: {
         type: 'hbox',
@@ -33,6 +19,25 @@ Ext.define('Ext.ux.plugin.minimize.MinimizeBar', {
     },
 
     initComponent: function(){
+        var buttonConfig = {
+            xtype: 'button',
+            text: 'Minimize all',
+            handler: function(){
+                Ext.ux.plugin.minimize.MinimizePool._windows.each(function(item){
+                    if(!item.minimized){
+                        item.minimize();
+                    }
+                });
+            }
+        };
+
+        Ext.apply(buttonConfig, this.minimizeAllButtonConfig);
+
+        this.items = [
+            { xtype: 'tbfill' },
+            buttonConfig
+        ];
+
         this.callParent(arguments);
         Ext.ux.plugin.minimize.MinimizePool.minimizePanel = this;
         Ext.ux.plugin.minimize.MinimizePool.toggleMode = this.toggleMode;
