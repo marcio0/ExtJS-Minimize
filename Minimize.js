@@ -8,7 +8,6 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         window.minimizable = true;
         window.minimized = false;
 
-        console.log(Ext.ux.plugin.minimize.MinimizePool._windows);
         Ext.ux.plugin.minimize.MinimizePool._windows.add(window);
         
         if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'toggle'){
