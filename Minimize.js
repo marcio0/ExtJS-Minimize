@@ -83,9 +83,7 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         if(button){
             button.destroy();
         }
-        console.log(Ext.ux.plugin.minimize.MinimizePool._windows);
         Ext.ux.plugin.minimize.MinimizePool._windows.removeAtKey(window.id);
-        console.log(Ext.ux.plugin.minimize.MinimizePool._windows);
     },
     
     toggleMinimizeHandler: function(window, opts){
