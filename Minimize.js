@@ -105,5 +105,5 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         } else {
             this.window.hide();
         }
-    },
+    }
 });
