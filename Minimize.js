@@ -20,8 +20,7 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
         Ext.ux.plugin.minimize.MinimizePool._windows.add(window);
         
         if(Ext.ux.plugin.minimize.MinimizePool.toggleMode == 'toggle'){
-            var title = window.minimizedTitle || window.title,
-                minimizePanel = Ext.ux.plugin.minimize.MinimizePool.minimizePanel;
+            var title = window.minimizedTitle || window.title;
 
             var buttonConfig = {
                 window: window,
@@ -31,7 +30,7 @@ Ext.define('Ext.ux.plugin.minimize.Minimize', {
                 toggleHandler: this.toggleHandler
             };
             
-            button = this.addMinimizedButton(buttonConfig);
+            var button = this.addMinimizedButton(buttonConfig);
 
             window.on('minimize', this.toggleMinimizeHandler, this, {button: button});
             window.on('beforeclose', this.closeWindow, this, {button: button});
